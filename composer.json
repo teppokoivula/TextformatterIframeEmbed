@@ -1,0 +1,22 @@
+{
+    "name": "teppokoivula/textformatter-iframe-embed",
+    "type": "pw-module",
+    "description": "TextformatterIframeEmbed is a ProcessWire CMS/CMF module for embedding iframe elements into page content.",
+    "keywords": [
+        "module",
+        "processwire"
+    ],
+    "homepage": "https://github.com/teppokoivula/TextformatterIframeEmbed",
+    "license": "MPL-2.0",
+    "authors": [
+        {
+            "name": "Teppo Koivula",
+            "homepage": "https://github.com/teppokoivula",
+            "email": "teppo.koivula@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.1",
+        "wireframe-framework/processwire-composer-installer": "^1.0.0"
+    }
+}
