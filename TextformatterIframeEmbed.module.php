@@ -24,41 +24,41 @@ class TextformatterIframeEmbed extends Textformatter implements Module, Configur
 		];
 	}
 
-    /**
-     * Default configuration for this module
-     *
-     * @return array
-     */
-    public static function getDefaultData() {
-        return [
-            'embed_tag' => 'iframe/',
-            'iframe_tag' => '<iframe class="TextformatterIframeEmbed" src="{url}"></iframe>',
+	/**
+	 * Default configuration for this module
+	 *
+	 * @return array
+	 */
+	public static function getDefaultData() {
+		return [
+			'embed_tag' => 'iframe/',
+			'iframe_tag' => '<iframe class="TextformatterIframeEmbed" src="{url}"></iframe>',
 		];
-    }
+	}
 
-    /**
-     * Populate the default config data
-     */
-    public function __construct() {
-        foreach (self::getDefaultData() as $key => $value) {
-            $this->$key = $value;
-        }
-    }
+	/**
+	 * Populate the default config data
+	 */
+	public function __construct() {
+		foreach (self::getDefaultData() as $key => $value) {
+			$this->$key = $value;
+		}
+	}
 
-    /**
-     * Module configuration
-     *
-     * @param array $data
-     * @return InputfieldWrapper
-     */
-    public function getModuleConfigInputfields(array $data) {
+	/**
+	 * Module configuration
+	 *
+	 * @param array $data
+	 * @return InputfieldWrapper
+	 */
+	public function getModuleConfigInputfields(array $data) {
 
 		// container for fields
-        $fields = $this->wire(new InputfieldWrapper());
+		$fields = $this->wire(new InputfieldWrapper());
 
-        // merge default config settings (custom values overwrite defaults)
-        $defaults = self::getDefaultData();
-        $data = array_merge($defaults, $data);
+		// merge default config settings (custom values overwrite defaults)
+		$defaults = self::getDefaultData();
+		$data = array_merge($defaults, $data);
 
 		// embed tag
 		$embed_tag = $this->wire(new InputfieldText());
