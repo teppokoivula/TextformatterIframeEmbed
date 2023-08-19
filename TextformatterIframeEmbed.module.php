@@ -18,7 +18,7 @@ class TextformatterIframeEmbed extends Textformatter implements Module, Configur
 	public static function getModuleInfo() {
 		return [
 			'title' => 'Iframe Embed Text Formatter',
-			'version' => '0.1.0',
+			'version' => '0.1.1',
 			'summary' => 'Converts iframe URLs prefixed with "iframe/" within paragraph tags into HTML iframe elements.',
 			'author' => 'Teppo Koivula',
 		];
@@ -90,13 +90,13 @@ class TextformatterIframeEmbed extends Textformatter implements Module, Configur
 	 */
 	public function format(&$str) {
 
-		// get embed tag
-		$embed_tag = preg_quote($this->embed_tag, '/');
-
 		// bail out early if there are no iframes
 		if (stripos($str, $this->embed_tag) === false) {
 			return;
 		}
+
+		// get quoted embed tag for regex
+		$embed_tag = preg_quote($this->embed_tag, '/');
 
 		// capture audio file URLs with regex and replace found matches with <audio> elements
 		if (preg_match_all('/\<p\>\s*' . $embed_tag . '(https?:\/\/.*?|\/site\/assets\/files\/.*?)\s*\<\/p\>/i', $str, $matches)) {
